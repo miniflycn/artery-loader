@@ -3,7 +3,7 @@ const complie = require('../lib')
 const helper = require('../lib/test-helper')
 
 describe('template', () => {
-  it('should support property variable', () => {
+  // it('should support property variable', () => {
     // const foo = new Function( // eslint-disable-line
     //   'elementOpen',
     //   'elementClose',
@@ -23,7 +23,7 @@ describe('template', () => {
     // )
 
     // console.log(helper.result())
-  })
+  // })
 
   // it('should support property variable', () => {
   //   const foo = new Function( // eslint-disable-line
@@ -77,4 +77,8 @@ describe('template', () => {
 
   //   console.log(helper.result())
   // })
+
+  it('should support property variable', () => {
+    console.log(complie('<p data-aaa="test"></p>'))
+  })
 })
