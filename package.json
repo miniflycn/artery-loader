@@ -1,6 +1,6 @@
 {
   "name": "artery-loader",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "should": "^11.1.1"
   },
   "dependencies": {
-    "htmlparser2": "^3.9.2",
+    "artery-htmlparser": "^0.0.1",
     "indent-string": "^3.0.0"
   }
 }

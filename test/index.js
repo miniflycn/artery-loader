@@ -79,6 +79,13 @@ describe('template', () => {
   // })
 
   it('should support property variable', () => {
-    console.log(complie('<p style={{{width: 10}}}></p>'))
+    console.log(complie(`
+      {{each this.props.list as item i}}
+        <p>{{item.label}}</p>
+        {{each this.props.col as col j}}
+          {{col.name}}
+        {{/each}}
+      {{/each}}
+    `))
   })
 })
