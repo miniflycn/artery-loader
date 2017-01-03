@@ -79,6 +79,6 @@ describe('template', () => {
   // })
 
   it('should support property variable', () => {
-    console.log(complie('<p data-aaa="test"></p>'))
+    console.log(complie('<p style={{{width: 10}}}></p>'))
   })
 })
