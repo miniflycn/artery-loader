@@ -80,10 +80,15 @@ describe('template', () => {
 
   it('should support property variable', () => {
     console.log(complie(`
-      <div>
-        aaaaa
-        <span>bbbb</span>
+      <div class="trading-plg">
+          {{if this.props.offer.bookedCount >= 10000}}
+          <span class="text">近30天热销{{this.props.offer.bookedCount / 10000}}万笔</span>
+          {{else if this.props.offer.bookedCount < 10000 && this.props.offer.bookedCount > 0}}
+          <span class="text">近30天热销{{this.props.offer.bookedCount}}笔</span>
+          {{else}}
+          <span class="text fd-hide">暂无成交</span>
+          {{/if}}
       </div>
-    `))
+    `).output)
   })
 })
