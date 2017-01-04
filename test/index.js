@@ -79,6 +79,11 @@ describe('template', () => {
   // })
 
   it('should support property variable', () => {
-    console.log(complie(`<a style={{{color: 'red'}}} href="javascript:;" onClick={{ () => this.editOffer('he llo world') }}>ES6 === Click me!</a>`))
+    console.log(complie(`
+      {{ if a === b}}
+        123
+        <span>321</span>
+      {{ /if }}
+    `))
   })
 })
