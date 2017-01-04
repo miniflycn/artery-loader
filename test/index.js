@@ -79,13 +79,6 @@ describe('template', () => {
   // })
 
   it('should support property variable', () => {
-    console.log(complie(`
-      {{each this.props.list as item i}}
-        <p>{{item.label}}</p>
-        {{each this.props.col as col j}}
-          {{col.name}}
-        {{/each}}
-      {{/each}}
-    `))
+    console.log(complie(`<a style={{{color: 'red'}}} href="javascript:;" onClick={{ () => this.editOffer('he llo world') }}>ES6 === Click me!</a>`))
   })
 })
