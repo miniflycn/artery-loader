@@ -80,10 +80,10 @@ describe('template', () => {
 
   it('should support property variable', () => {
     console.log(complie(`
-      {{ if a === b}}
-        123
-        <span>321</span>
-      {{ /if }}
+      <div>
+        aaaaa
+        <span>bbbb</span>
+      </div>
     `))
   })
 })
