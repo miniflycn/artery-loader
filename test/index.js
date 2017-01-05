@@ -92,19 +92,24 @@ describe('template', () => {
   //   `).output)
   // })
 
+//   it('should xxx', () => {
+//     console.log(complie(`
+//       <div>
+//     <span>{{this.props.name}}</span>
+//     {{each this.props.list as item i}}
+//       <p>{{item.label}}</p>
+//       {{each this.props.col as col j}}
+//       <span>{{col.name}}===</span>
+//       {{/each}}
+//     {{/each}}
+
+//     <div onClick={{this.ed}}>hello click me</div>
+// </div>
+//     `).output)
+//   })
   it('should xxx', () => {
     console.log(complie(`
-      <div>
-    <span>{{this.props.name}}</span>
-    {{each this.props.list as item i}}
-      <p>{{item.label}}</p>
-      {{each this.props.col as col j}}
-      <span>{{col.name}}===</span>
-      {{/each}}
-    {{/each}}
-
-    <div onClick={{this.ed}}>hello click me</div>
-</div>
+      <span>hello&nbsp;world</span>
     `).output)
   })
 })
