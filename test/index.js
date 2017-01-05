@@ -78,17 +78,33 @@ describe('template', () => {
   //   console.log(helper.result())
   // })
 
-  it('should support property variable', () => {
+  // it('should support property variable', () => {
+  //   console.log(complie(`
+  //     <div class="trading-plg">
+  //         {{if this.props.offer.bookedCount >= 10000}}
+  //         <span class="text">近30天热销{{this.props.offer.bookedCount / 10000}}万笔</span>
+  //         {{else if this.props.offer.bookedCount < 10000 && this.props.offer.bookedCount > 0}}
+  //         <span class="text">近30天热销{{this.props.offer.bookedCount}}笔</span>
+  //         {{else}}
+  //         <span class="text fd-hide">暂无成交</span>
+  //         {{/if}}
+  //     </div>
+  //   `).output)
+  // })
+
+  it('should xxx', () => {
     console.log(complie(`
-      <div class="trading-plg">
-          {{if this.props.offer.bookedCount >= 10000}}
-          <span class="text">近30天热销{{this.props.offer.bookedCount / 10000}}万笔</span>
-          {{else if this.props.offer.bookedCount < 10000 && this.props.offer.bookedCount > 0}}
-          <span class="text">近30天热销{{this.props.offer.bookedCount}}笔</span>
-          {{else}}
-          <span class="text fd-hide">暂无成交</span>
-          {{/if}}
-      </div>
+      <div>
+    <span>{{this.props.name}}</span>
+    {{each this.props.list as item i}}
+      <p>{{item.label}}</p>
+      {{each this.props.col as col j}}
+      <span>{{col.name}}===</span>
+      {{/each}}
+    {{/each}}
+
+    <div onClick={{this.ed}}>hello click me</div>
+</div>
     `).output)
   })
 })
