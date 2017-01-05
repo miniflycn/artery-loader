@@ -1,6 +1,6 @@
 {
-  "name": "artery-loader",
-  "version": "0.0.16",
+  "name": "@alife/artery-loader",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -25,5 +25,8 @@
     "artery-htmlparser": "^0.0.2",
     "entities": "^1.1.1",
     "indent-string": "^3.0.0"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npm.alibaba-inc.com"
   }
 }
