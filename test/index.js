@@ -1,5 +1,6 @@
 /* eslint-env mocha */
 const complie = require('../lib')
+const path = require('path')
 const helper = require('../lib/test-helper')
 
 describe('template', () => {
@@ -109,7 +110,11 @@ describe('template', () => {
 //   })
   it('should xxx', () => {
     console.log(complie(`
-      <span>hello&nbsp;world</span>
-    `).output)
+      <div>
+        <hello value={{this.props.value}}></hello>
+        <hello value="你好"></hello>
+        <span>hello&nbsp;world</span>
+      </div>
+    `, path.join(__dirname, 'fragment')).output)
   })
 })
