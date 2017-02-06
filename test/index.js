@@ -111,9 +111,8 @@ describe('template', () => {
   it('should xxx', () => {
     console.log(complie(`
       <div>
-        <hello value={{this.props.value}}></hello>
-        <hello value="你好"></hello>
-        <span>hello&nbsp;world</span>
+        <hello value="你好">
+        </hello>
       </div>
     `, path.join(__dirname, 'fragment')).output)
   })
