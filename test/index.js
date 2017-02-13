@@ -110,10 +110,11 @@ describe('template', () => {
 //   })
   it('should xxx', () => {
     console.log(complie(`
-      <div>
-        <hello value="你好">
-        </hello>
-      </div>
+      {{each a as aaa }}
+        {{each b as item}}
+          hello
+        {{/each}}
+      {{/each}}
     `, path.join(__dirname, 'fragment')).output)
   })
 })
