@@ -82,7 +82,7 @@ describe('template', () => {
 
     helper.result()
       .should
-      .equal('<body ><li >0. hello</li><li >1. hello</li></body>')
+      .equal('<body ><li >0. hello</li><li >1. world</li></body>')
   })
 
   it('should support property variable', () => {
@@ -140,28 +140,31 @@ describe('template', () => {
       .equal('<body ><div className="trading-plg"><span className="text">近30天热销9999笔</span></div></body>') // eslint-disable-line
   })
 
-//   it('should xxx', () => {
-//     console.log(complie(`
-//       <div>
-//     <span>{{this.props.name}}</span>
-//     {{each this.props.list as item i}}
-//       <p>{{item.label}}</p>
-//       {{each this.props.col as col j}}
-//       <span>{{col.name}}===</span>
-//       {{/each}}
-//     {{/each}}
+  it('should support property variable', () => {
+    const foo = new Function( // eslint-disable-line
+      'elementOpen',
+      'elementClose',
+      'text',
+      'state',
+      complie(`
+        {{each state.row as row}}
+          {{each state.col as col}}
+            hello {{row + ' ' + col}}
+          {{/each}}
+        {{/each}}
+      `, path.join(__dirname, 'fragment')).output
+    )
 
-//     <div onClick={{this.ed}}>hello click me</div>
-// </div>
-//     `).output)
-//   })
-  // it('should xxx', () => {
-  //   console.log(complie(`
-  //     {{each a as aaa }}
-  //       {{each b as item}}
-  //         hello
-  //       {{/each}}
-  //     {{/each}}
-  //   `, path.join(__dirname, 'fragment')).output)
-  // })
+    helper.clear()
+    foo(
+      helper.elementOpen,
+      helper.elementClose,
+      helper.text,
+      { row: [1, 2, 3], col: [4, 5, 6] }
+    )
+
+    helper.result()
+      .should
+      .equal('<body >\n                  hello 1 4\n                  hello 1 5\n                  hello 1 6\n                  hello 2 4\n                  hello 2 5\n                  hello 2 6\n                  hello 3 4\n                  hello 3 5\n                  hello 3 6</body>')
+  })
 })
