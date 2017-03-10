@@ -167,4 +167,34 @@ describe('template', () => {
       .should
       .equal('<body >\n                  hello 1 4\n                  hello 1 5\n                  hello 1 6\n                  hello 2 4\n                  hello 2 5\n                  hello 2 6\n                  hello 3 4\n                  hello 3 5\n                  hello 3 6</body>')
   })
+
+  it('should support child template props.children', () => {
+
+    const foo = new Function( // eslint-disable-line
+      'elementOpen',
+      'elementClose',
+      'text',
+      'state',
+      'props',
+      complie(`
+        <div>
+          <child>
+            {{state.text}}
+          </child>
+        </div>
+      `, path.join(__dirname, 'fragment')).output
+    )
+
+    helper.clear()
+    foo(
+      helper.elementOpen,
+      helper.elementClose,
+      helper.text,
+      { text: '1688' },
+      {}
+    )
+
+    helper.result()
+      .should.equal('<body ><div ><div >1688</div></div></body>')
+  })
 })
