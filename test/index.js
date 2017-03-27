@@ -197,4 +197,28 @@ describe('template', () => {
     helper.result()
       .should.equal('<body ><div ><div >1688</div></div></body>')
   })
+
+  it('should able fixed the attribute', () => {
+    const foo = new Function( // eslint-disable-line
+      'elementOpen',
+      'elementClose',
+      'text',
+      complie(`
+        <div>
+          <p class="abc"></p>
+          <video autoplay={{true}}></video>
+        </div>
+      `, path.join(__dirname, 'fragment')).output
+    )
+
+    helper.clear()
+    foo(
+      helper.elementOpen,
+      helper.elementClose,
+      helper.text
+    )
+
+    helper.result()
+      .should.equal('<body ><div ><p className="abc"></p><video autoPlay="true"></video></div></body>')
+  })
 })
