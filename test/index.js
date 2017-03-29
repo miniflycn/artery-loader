@@ -155,6 +155,8 @@ describe('template', () => {
       `, path.join(__dirname, 'fragment')).output
     )
 
+    console.log(foo.toString())
+
     helper.clear()
     foo(
       helper.elementOpen,
