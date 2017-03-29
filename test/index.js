@@ -155,8 +155,6 @@ describe('template', () => {
       `, path.join(__dirname, 'fragment')).output
     )
 
-    console.log(foo.toString())
-
     helper.clear()
     foo(
       helper.elementOpen,
@@ -222,5 +220,14 @@ describe('template', () => {
 
     helper.result()
       .should.equal('<body ><div ><p className="abc"></p><video autoPlay="true"></video></div></body>')
+  })
+
+  it('should able to get the child template dependences', () => {
+    complie(`
+        <div>
+          <container></container>
+        </div>
+      `, path.join(__dirname, 'fragment')).dependencies[0]
+      .should.equal('noexisit')
   })
 })
